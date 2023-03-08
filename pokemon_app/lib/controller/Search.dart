@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:pokemon_app/view/Delial.dart';
 
 class TestSearch extends SearchDelegate {
   TestSearch({required this.name, required this.data});
@@ -446,12 +447,16 @@ class TestSearch extends SearchDelegate {
           return InkWell(
             onTap: () {
               query = query == "" ? name[i] : result[i];
-
-              // showModalBottomSheet(
-              //     context: context,
-              //     builder: (context) {
-              //       return Slider1();
-              //     });
+              for (int i = 0; i < data.length; i++) {
+                if (data[i]['name'] == query) {
+                  Results = data[i];
+                  Navigator.of(context).push(
+                    MaterialPageRoute(
+                      builder: (context) => Detail(Data: Results),
+                    ),
+                  );
+                }
+              }
             },
             child: Container(
                 padding: const EdgeInsets.all(14),

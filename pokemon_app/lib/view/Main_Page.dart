@@ -25,13 +25,9 @@ class _Main_Page_ViewState extends State<Main_Page_View> {
     if (rs.statusCode == 200) {
       Data_Pokemon = jsonDecode(rs.body);
       setState(() {
-        // Data_Pokemon.forEach((element) {
-        //   Name.add(element['name']);
-        // });
         for (int i = 0; i < Data_Pokemon.length; i++) {
           Name.add(Data_Pokemon[i]['name']);
         }
-        print(Name);
       });
     }
   }
@@ -49,7 +45,7 @@ class _Main_Page_ViewState extends State<Main_Page_View> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Popular Movies'),
+        title: const Text('Popular App'),
         elevation: 0,
         actions: [
           IconButton(
